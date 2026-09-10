@@ -634,14 +634,18 @@ Your order has been placed successfully! Thank you for choosing LAMÍ. 💗
 
 <div class="form-box">
 
+<form action="https://formspree.io/f/mdeoyvwr" method="POST">
+
 <div class="form-group">
 
 <label>Full Name</label>
 
 <input
 type="text"
+name="Full Name"
 id="guestName"
-placeholder="Enter your name">
+placeholder="Enter your name"
+required>
 
 </div>
 
@@ -650,7 +654,11 @@ placeholder="Enter your name">
 
 <label>Date</label>
 
-<input type="date" id="reserveDate">
+<input
+type="date"
+name="Date"
+id="reserveDate"
+required>
 
 </div>
 
@@ -659,7 +667,7 @@ placeholder="Enter your name">
 
 <label>Time</label>
 
-<select id="reserveTime">
+<select name="Time" id="reserveTime" required>
 
 <option>11:00 AM</option>
 <option>12:00 PM</option>
@@ -678,7 +686,7 @@ placeholder="Enter your name">
 
 <label>Number of Guests</label>
 
-<select id="guestCount">
+<select name="Number of Guests" id="guestCount" required>
 
 <option>1</option>
 <option>2</option>
@@ -692,18 +700,15 @@ placeholder="Enter your name">
 </div>
 
 
-<button class="btn" onclick="makeReservation()">
+<button class="btn" type="submit">
 Confirm Reservation
 </button>
 
-
-<div class="message" id="reservationMessage"></div>
+</form>
 
 </div>
 
 </section>
-
-
 <!-- GUEST PORTAL -->
 
 <section id="portal">
