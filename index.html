@@ -1095,52 +1095,6 @@ item.style.display = "none";
 }
 
 
-function makeReservation() {
-
-const name =
-document.getElementById("guestName").value;
-
-const date =
-document.getElementById("reserveDate").value;
-
-const time =
-document.getElementById("reserveTime").value;
-
-const guests =
-document.getElementById("guestCount").value;
-
-
-if (name === "" || date === "") {
-
-alert("Please complete your name and reservation date.");
-
-return;
-
-}
-
-
-const message =
-document.getElementById("reservationMessage");
-
-
-message.innerHTML =
-"Reservation confirmed for " +
-name +
-" on " +
-date +
-" at " +
-time +
-" for " +
-guests +
-" guest(s). 💗";
-
-
-message.style.display = "block";
-
-
-document.getElementById("profileName").textContent = name;
-
-}
 
 
 function openPortal(id) {
