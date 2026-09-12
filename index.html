@@ -599,26 +599,40 @@ Add to Order
 
 <div class="form-box">
 
+<form action="https://formspree.io/f/mdeoyvwr" method="POST">
+
+<label>Customer Name</label>
+<input type="text" name="Customer Name" placeholder="Enter your name" required>
+
+<label>Order Details</label>
+
 <div id="orderList">
 <p>No items added yet.</p>
 </div>
+
+<input type="hidden" name="Items Ordered" id="formOrderItems">
 
 <div class="total">
 Total: ₱<span id="orderTotal">0</span>
 </div>
 
-<button class="btn" onclick="placeOrder()">
+<input type="hidden" name="Total Amount" id="formOrderTotal">
+
+<input type="hidden" name="Order Status" value="Pending">
+<input type="hidden" name="Form Type" value="Customer Order">
+<button type="submit" class="btn">
 Place Order
 </button>
 
+</form>
+
 <div class="message" id="orderMessage">
-Your order has been placed successfully! Thank you for choosing LAMÍ. 💗
+Your order has been submitted successfully! Thank you for choosing LAMÍ. 💗
 </div>
 
 </div>
 
 </section>
-
 
 <!-- RESERVATION -->
 
@@ -1071,10 +1085,22 @@ return;
 
 }
 
+let orderDetails = "";
+
+orders.forEach(function(item) {
+
+orderDetails += item.name + " x" + item.quantity + " - ₱" + (item.price * item.quantity) + "\n";
+
+});
+
+document.getElementById("formOrderItems").value = orderDetails;
+
+document.getElementById("formOrderTotal").value =
+document.getElementById("orderTotal").textContent;
+
 document.getElementById("orderMessage").style.display = "block";
 
 }
-
 
 function filterMenu(category, button) {
 
