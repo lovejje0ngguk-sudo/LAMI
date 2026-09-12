@@ -660,6 +660,18 @@ name="Date"
 id="reserveDate"
 required>
 
+<div class="form-group">
+
+<label>Day</label>
+
+<input
+type="text"
+name="Day"
+id="reserveDay"
+readonly
+placeholder="Day will appear automatically">
+
+</div>
 </div>
 
 
@@ -1143,7 +1155,23 @@ function sendFeedback() {
 document.getElementById("feedbackMessage").style.display = "block";
 
 }
+document.getElementById("reserveDate").addEventListener("change", function() {
 
+const date = new Date(this.value + "T00:00:00");
+
+const days = [
+"Sunday",
+"Monday",
+"Tuesday",
+"Wednesday",
+"Thursday",
+"Friday",
+"Saturday"
+];
+
+document.getElementById("reserveDay").value = days[date.getDay()];
+
+});
 </script>
 
 </body>
