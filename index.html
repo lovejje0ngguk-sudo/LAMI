@@ -1081,7 +1081,7 @@ if (orders.length === 0) {
 
 alert("Please add an item to your order first.");
 
-return;
+return false;
 
 }
 
@@ -1095,10 +1095,15 @@ orderDetails += item.name + " x" + item.quantity + " - ₱" + (item.price * item
 
 document.getElementById("formOrderItems").value = orderDetails;
 
-document.getElementById("formOrderTotal").value =
-document.getElementById("orderTotal").textContent;
+document.getElementById("formOrderTotal").value = orders.reduce(function(total, item) {
+
+return total + (item.price * item.quantity);
+
+}, 0);
 
 document.getElementById("orderMessage").style.display = "block";
+
+return true;
 
 }
 
